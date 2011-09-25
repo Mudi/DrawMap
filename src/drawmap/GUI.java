@@ -30,6 +30,7 @@ public class GUI extends JFrame {
     private Border reunus;
 
 
+
     public GUI() {
         super("DrawMap");
     }
@@ -76,7 +77,6 @@ public class GUI extends JFrame {
         
         //Action listeners
         showLineCount.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.showLineCount();
@@ -85,7 +85,6 @@ public class GUI extends JFrame {
         });
         
         lenghten.addActionListener(new ActionListener(){
-
             @Override
             public void actionPerformed(ActionEvent e) {
                controller.lenghtenLines();
@@ -121,15 +120,19 @@ public class GUI extends JFrame {
                 
             }
         });
+       
+       
 
-        // Load map button function
+       /*
+        * Load map button function
+        */
         loadMap.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                File koti = new File("/home/mudi/Dropbox/Java/DrawMapEclips/src/DM/");
-                chooser.setCurrentDirectory(koti);
+                String inputFileName = 
+                System.getProperty("user.home");
+                chooser.setCurrentDirectory(new File(inputFileName));
 
                 int state = chooser.showOpenDialog(null);
                 File file = chooser.getSelectedFile();
@@ -146,7 +149,6 @@ public class GUI extends JFrame {
                         JOptionPane.showMessageDialog(null, "Canceled");
                     }
                 }
-
                 repaint();
             }
         });
