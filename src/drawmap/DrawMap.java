@@ -45,7 +45,6 @@ public class DrawMap extends JPanel {
             line = freader.nextLine();
 
             Scanner parse = new Scanner(line);
-
             parse.useDelimiter(",");
 
             try {
@@ -53,13 +52,12 @@ public class DrawMap extends JPanel {
                 y1 = Math.abs(Integer.parseInt(parse.next().trim()));
                 x2 = Math.abs(Integer.parseInt(parse.next().trim()));
                 y2 = Math.abs(Integer.parseInt(parse.next().trim()));
+                
             } catch (NumberFormatException nfe) {
                 JOptionPane.showMessageDialog(null, "The file data is corrupted. Please provide a new file.",
                                               "Corrupted file", JOptionPane.WARNING_MESSAGE);
-
                 break;
             }
-
             // Debuggausta varten, nähdään mitkä luvut on luettu
             if (debug) {
                 System.out.println(x1 + " " + y1 + " " + x2 + " " + y2);
