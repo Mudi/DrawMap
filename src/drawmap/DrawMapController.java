@@ -46,7 +46,10 @@ public class DrawMapController {
     void showLineCount() {
         dm.showLineCount();
     }
-
+    
+    void lenghtenLines(){
+        dm.lenghtenLines(3);
+    }
 	public JPanel getDrawMapPanel() {
 		return dm;
 	}

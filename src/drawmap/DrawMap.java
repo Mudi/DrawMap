@@ -15,7 +15,7 @@ import java.util.*;
 import javax.swing.*;
 
 public class DrawMap extends JPanel {
-    public static int     SCALE = 3;
+    public static int SCALE = 3;
     public static final boolean debug = false;
     private Vector<Line>  mapLines;
 
@@ -129,6 +129,13 @@ public class DrawMap extends JPanel {
     void drawMap() {
         this.repaint();
     }
+    
+          public void lenghtenLines(float delta){
+            for(Line l:mapLines){
+                l.lengthen(delta);
+            }
+        }
+
 
     // Näytetään käyttäjälle viivojen määrä popupilla
     void showLineCount() {

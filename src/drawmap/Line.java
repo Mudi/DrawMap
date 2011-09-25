@@ -5,12 +5,12 @@ package drawmap;
  */
 class Line {
 
-    private int x1;
-    private int y1;
-    private int x2;
-    private int y2;	
+    private float x1;
+    private float y1;
+    private float x2;
+    private float y2;	
 
-    public Line(int x1, int y1, int x2, int y2) {
+    public Line(float x1, float y1, float x2, float y2) {
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -20,21 +20,27 @@ class Line {
     public Line getLine(){
             return this;
 }
+  public void lengthen( float delta){
+    double  angle = Math.atan2(y2 - y1,x2- x1);
+    x1 = x1 - delta * (float)Math.cos(angle);
+    y1 = y1 - delta * (float)Math.sin(angle);
+    x2 = x2 + delta * (float)Math.cos(angle);
+    y2 = y2 + delta * (float)Math.sin(angle);
+  }
 
-
-    public int getX1() {
+    public float getX1() {
         return x1;
     }
 
-    public int getX2() {
+    public float getX2() {
         return x2;
     }
 
-    public int getY1() {
+    public float getY1() {
         return y1;
     }
 
-    public int getY2() {
+    public float getY2() {
         return y2;
     }
 }

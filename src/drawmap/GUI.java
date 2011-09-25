@@ -15,17 +15,20 @@ import javax.swing.border.*;
 public class GUI extends JFrame {
 
     final JFileChooser chooser = new JFileChooser();
-    private JPanel buttonPanel;
     private DrawMapController controller;
-    private JPanel karttaPaneeli;
+    
     // napit
     private JButton loadMap;
+    private JButton lenghten;
+    private JButton reloadMap;
+    private JButton showLineCount;
     // Paneelit
     private JPanel paaPaneeli;
-    private JButton reloadMap;
+    private JPanel karttaPaneeli;
+    private JPanel buttonPanel;
     // reunat
     private Border reunus;
-    private JButton showLineCount;
+
 
     public GUI() {
         super("DrawMap");
@@ -39,6 +42,7 @@ public class GUI extends JFrame {
         loadMap = new JButton("Load Map");
         reloadMap = new JButton("Reload Map");
         showLineCount = new JButton("LineCount");
+        lenghten = new JButton("Lenghten Lines");
 
         // Panels
         paaPaneeli = new JPanel();
@@ -50,6 +54,7 @@ public class GUI extends JFrame {
         buttonPanel.add(loadMap, BorderLayout.WEST);
         buttonPanel.add(reloadMap, BorderLayout.EAST);
         buttonPanel.add(showLineCount);
+        buttonPanel.add(lenghten);
         paaPaneeli.add(buttonPanel, BorderLayout.SOUTH);
         paaPaneeli.add(karttaPaneeli);
 
@@ -78,6 +83,18 @@ public class GUI extends JFrame {
                 repaint();
             }
         });
+        
+        lenghten.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               controller.lenghtenLines();
+               repaint();
+            }
+            
+        });
+        
+      
 
         //Skaalauksen muunnos
         //TODO korjaa scaalaus
@@ -151,6 +168,7 @@ public class GUI extends JFrame {
     void registerController(DrawMapController controller) {
         this.controller = controller;
     }
+    
 
     // Tunnistetaan eri nappien painalluksia
     private class LiikeTunnistin extends KeyAdapter {
