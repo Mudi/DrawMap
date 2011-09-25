@@ -64,6 +64,7 @@ public class GUI extends JFrame {
         loadMap.setBorder(reunus);
         reloadMap.setBorder(reunus);
         showLineCount.setBorder(reunus);
+        lenghten.setBorder(reunus);
         karttaPaneeli.setBorder(reunus);
 
         // Center the window
@@ -79,7 +80,6 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.showLineCount();
-                controller.redrawMapPanel();
                 repaint();
             }
         });
@@ -106,11 +106,9 @@ public class GUI extends JFrame {
                 int keyCode = ke.getKeyCode();
                 if (keyCode == KeyEvent.VK_UP) {    // Päivitetään näkymä panamalla nuolta ylöspäin
                     controller.increaseScale();
-                    controller.redrawMapPanel();
                     repaint();
                 } else if (keyCode == KeyEvent.VK_DOWN) {    // Päivitetään näkymä panamalla nuolta ylöspäin
                     controller.decreaseScale();
-                    controller.redrawMapPanel();
                     repaint();
                 }
             }
@@ -149,7 +147,6 @@ public class GUI extends JFrame {
                     }
                 }
 
-                controller.redrawMapPanel();
                 repaint();
             }
         });
